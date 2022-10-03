@@ -26,6 +26,17 @@ jobs:
     - name: Build config
       id: build-config
       run: |
+        echo "Build"
         cd config
-        ls -l
-        echo "Done"
+        echo "{}" >../vladimir.json
+
+    - name: Validate config
+      id: validate-config
+      run: |
+        echo "Validate"
+        cat vladimir.json | jq empty
+
+    - name: Deploy config
+      id: deploy-config
+      run: |
+        echo "Deploy"
