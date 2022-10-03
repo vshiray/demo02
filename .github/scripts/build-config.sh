@@ -2,10 +2,12 @@
 
 cd config
 
+nl=""
 echo "{"
 while read f
 do
   read v <$f
-  echo "  \"${f:2}\": \"$v\""
+  echo -en "$nl  \"${f:2}\": \"$v\""
+  nl=",\n"
 done < <(find -type f)
-echo "}"
+echo -e "\n}"
