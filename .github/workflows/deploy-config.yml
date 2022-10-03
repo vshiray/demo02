@@ -28,11 +28,11 @@ jobs:
       run: |
         chmod +x .github/scripts/build-config.sh
         .github/scripts/build-config.sh >vladimir.json
+        cat vladimir.json
 
     - name: Validate config
       id: validate-config
       run: |
-        cat vladimir.json
         cat vladimir.json | jq empty
 
     - name: Deploy config
