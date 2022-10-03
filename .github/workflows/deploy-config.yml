@@ -26,14 +26,13 @@ jobs:
     - name: Build config
       id: build-config
       run: |
-        echo "Build"
-        cd config
-        echo "{}" >../vladimir.json
+        chmod +x .github/scripts/build-config.sh
+        .github/scripts/build-config.sh >vladimir.json
 
     - name: Validate config
       id: validate-config
       run: |
-        echo "Validate"
+        cat vladimir.json
         cat vladimir.json | jq empty
 
     - name: Deploy config
